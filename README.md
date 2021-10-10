@@ -1,11 +1,11 @@
-# wps — WordPress plugin for whoops
+# wompwomp — WordPress plugin for whoops
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Rarst/wps/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Rarst/wps/?branch=master)
 [![Latest Stable Version](https://poser.pugx.org/rarst/wps/v/stable)](https://packagist.org/packages/rarst/wps)
 [![Total Downloads](https://poser.pugx.org/rarst/wps/downloads)](https://packagist.org/packages/rarst/wps)
 [![PHP version](https://img.shields.io/packagist/php-v/rarst/wps.svg)](https://packagist.org/packages/rarst/wps)
 [![Download wps](https://img.shields.io/badge/download-wps.zip-blue)](https://github.com/Rarst/wps/releases/latest/download/wps.zip)
 
-wps adds [whoops](http://filp.github.io/whoops/) error handler to a WordPress installation. 
+wompwomp adds [whoops](http://filp.github.io/whoops/) error handler to a WordPress installation. 
 
 It makes error messages from PHP, `admin-ajax.php`, and WP REST API a _great_ deal more clear and convenient to work with.
 
@@ -13,7 +13,7 @@ It makes error messages from PHP, `admin-ajax.php`, and WP REST API a _great_ de
 
 | [Composer](https://getcomposer.org/) (recommended) | Release archive |  
 | -------------------------------------------------- | -------- |  
-| `composer require rarst/wps` | [![Download wps](https://img.shields.io/badge/download-wps.zip-blue?style=for-the-badge)](https://github.com/Rarst/wps/releases/latest/download/wps.zip) |
+| `composer require jenksed/wompwomp` | [![Download wps](https://img.shields.io/badge/download-wps.zip-blue?style=for-the-badge)](https://github.com/jenksed/wompwomp/releases/latest/download/wompwomp.zip) |
 
 ## Usage
 
@@ -27,7 +27,7 @@ Silence errors for irrelevant locations to keep it practical and productive.
 
 ### Silence for URL
 
-Use `?wps_disable` query argument in the URL to temporarily disable whoops. 
+Use `?wompwomp_disable` query argument in the URL to temporarily disable whoops. 
 
 ### Silence for path
 
@@ -38,19 +38,19 @@ This can be called multiple times and/or array of paths can be provided.
 Note that the direction of slashes needs to match operating system or write your regexes to match either.
 
 ```php
-global $wps;
+global $wompwomp;
 
 // Silence notices and warnings for any path. 
-$wps['run']->silenceErrorsInPaths( '~.*~', E_NOTICE | E_WARNING );
+$wompwomp['run']->silenceErrorsInPaths( '~.*~', E_NOTICE | E_WARNING );
 
 // Silence for specific directory.
-$wps['run']->silenceErrorsInPaths( '~/wp-admin/~', E_NOTICE | E_WARNING );
+$wompwomp['run']->silenceErrorsInPaths( '~/wp-admin/~', E_NOTICE | E_WARNING );
 
 // Silence _except_ specific directory.
-$wps['run']->silenceErrorsInPaths( '~^((?!/my-plugin/).)*$~', E_NOTICE | E_WARNING );
+$wompwomp['run']->silenceErrorsInPaths( '~^((?!/my-plugin/).)*$~', E_NOTICE | E_WARNING );
 
 // Silence for plugins _except_ specific plugin.
-$wps['run']->silenceErrorsInPaths( '~/wp-content/plugins/(?!my-plugin)~', E_NOTICE | E_WARNING );
+$wompwomp['run']->silenceErrorsInPaths( '~/wp-content/plugins/(?!my-plugin)~', E_NOTICE | E_WARNING );
 ```
 
 
